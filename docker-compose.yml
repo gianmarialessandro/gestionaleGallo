@@ -21,10 +21,12 @@ services:
   mysql:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: yourpassword
-      MYSQL_DATABASE: yourdb
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: azienda
     ports:
       - "3306:3306"
+    volumes:
+      - ./backend/database-scripts:/docker-entrypoint-initdb.d
     networks:
       - my-network
 networks:
